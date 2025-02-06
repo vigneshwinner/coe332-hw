@@ -21,8 +21,8 @@ Python Scripts:
     - Verifies correct statistical computations and proper error handling for invalid data.
 
 Data:
-- Use the following command to download meteorite_landings.csv into the directory:
-curl -o meteorite_landings.csv "https://data.nasa.gov/api/views/gh4g-9sfh/rows.csv?accessType=DOWNLOAD"
+- Use the following command to download meteorite_landings.csv into the directory: 
+    * curl -o meteorite_landings.csv "https://data.nasa.gov/api/views/gh4g-9sfh/rows.csv?accessType=DOWNLOAD"
 
 Running the Code:
 1. python3 ml_data_analysis.py
