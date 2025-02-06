@@ -1,74 +1,74 @@
 import csv
 import logging
-import argparse
 from gcd_algorithm import great_circle_distance
 
-# Configure logging
-logging.basicConfig(level=logging.DEBUG, format='%(levelname)s: %(message)s')
+logging.basicConfig(level=DEBUG)
 
-def read_csv(file_path: str) -> list[dict]:
+def load_data(filename: str) -> list:
     """
-    Reads a CSV file and returns a list of dictionaries.
+    Load meteorite landing data from a CSV file.
 
-    Args:
-        file_path (str): Path to CSV file.
+    Parameters:
+    filename: CSV file containing meteorite landing data
 
     Returns:
-        list[dict]: List of meteorite landing data.
+    List of dictionaries with meteorite data
     """
     try:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            return [row for row in reader]
+        with open(filename, newline='') as file:
+            reader = csv.DictReader(file)
+            data = [row for row in reader]
+        logging.info("Successfully loaded CSV data.")
+        return data
     except FileNotFoundError:
-        logging.error("CSV file not found.")
+        logging.error("File not found.")
         return []
-    except Exception as e:
-        logging.error(f"Unexpected error reading file: {e}")
+    except csv.Error:
+        logging.error("Error parsing CSV file.")
         return []
 
-def heaviest_meteorite(landings: list[dict]) -> dict:
+def find_heaviest_meteorite(data: list) -> dict:
     """
-    Finds the heaviest meteorite from the dataset.
+    Find the heaviest meteorite in the dataset.
 
-    Args:
-        landings (list[dict]): Meteorite landing records.
+    Parameters:
+    data: List of meteorite dictionaries
 
     Returns:
-        dict: The meteorite with the highest mass.
+    Dictionary containing the heaviest meteorite's details
     """
-    try:
-        return max(landings, key=lambda x: float(x['mass (g)']) if x['mass (g)'] else 0)
-    except ValueError:
-        logging.error("Invalid data in 'mass (g)' field.")
-        return {}
+    heaviest = None
+    max_mass = 0
+    for item in data:
+        try:
+            mass = float(item["mass (g)"]) if item["mass (g)"] else 0
+            if mass > max_mass:
+                max_mass = mass
+                heaviest = item
+        except ValueError:
+            logging.warning(f"Invalid mass value found: {item['mass (g)']}")
+    
+    return heaviest
 
-def calculate_avg_latitude(landings: list[dict]) -> float:
+def compute_average_latitude(data: list) -> float:
     """
-    Computes the average latitude of meteorite landings.
+    Compute the average latitude of meteorite landings.
 
-    Args:
-        landings (list[dict]): Meteorite landing records.
+    Parameters:
+    data: List of meteorite dictionaries
 
     Returns:
-        float: Average latitude.
+    Average latitude value
     """
-    latitudes = [float(m['reclat']) for m in landings if m.get('reclat')]
-    return sum(latitudes) / len(latitudes) if latitudes else 0.0
-
-def main():
-    parser = argparse.ArgumentParser(description="Analyze NASA Meteorite Landings data.")
-    parser.add_argument("csv_file", type=str, help="Path to the CSV file")
-    args = parser.parse_args()
-
-    data = read_csv(args.csv_file)
-
-    if data:
-        logging.info(f"Heaviest Meteorite: {heaviest_meteorite(data)}")
-        logging.info(f"Average Latitude: {calculate_avg_latitude(data)}")
-        logging.info(f"Nearest Meteorite to (0, 0): {great_circle_distance(0, 0, 40, -75)}")
-
-if __name__ == '__main__':
-    main()
-
+    total_lat = 0
+    count = 0
+    for item in data:
+        try:
+            lat = float(item["reclat"]) if item["reclat"] else 0
+            total_lat += lat
+            count += 1
+        except ValueError:
+            logging.warning(f"Invalid latitude value found: {item['reclat']}")
+    
+    return total_lat / count if count else 0
 
