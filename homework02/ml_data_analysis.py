@@ -2,7 +2,7 @@ import csv
 import logging
 from gcd_algorithm import great_circle_distance
 
-logging.basicConfig(level=DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 
 def load_data(filename: str) -> list:
     """
