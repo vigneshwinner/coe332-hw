@@ -27,7 +27,7 @@ def load_data(filename: str) -> list:
         logging.error("Error parsing CSV file.")
         return []
 
-def find_heaviest_meteorite(data: list) -> dict:
+def heaviest_meteorite(data: list) -> dict:
     """
     Find the heaviest meteorite in the dataset.
 
@@ -50,7 +50,7 @@ def find_heaviest_meteorite(data: list) -> dict:
     
     return heaviest
 
-def compute_average_latitude(data: list) -> float:
+def calculate_avg_latitude(data: list) -> float:
     """
     Compute the average latitude of meteorite landings.
 
