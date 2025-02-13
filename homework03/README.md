@@ -38,5 +38,5 @@ Running the Code on Docker (build image yourself):
 2. Run: docker build -t vigneshwinner/homework03:1.0 ./
 3. Test ml_data_analysis.py: docker run --rm -v "$(pwd)/meteorite_landings.csv:/code/meteorite_landings.csv" vigneshwinner/homework03 python /code/ml_data_analysis.py
 4. Run the Unit Tests: docker run --rm -v "$(pwd)/meteorite_landings.csv:/code/meteorite_landings.csv" vigneshwinner/homework03 pytest /code
-OR (pull directly from DockerHub):
-docker pull vigneshwinner/homework03:1.0
+
+OR (pull directly from DockerHub): docker pull vigneshwinner/homework03:1.0
