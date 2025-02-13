@@ -43,4 +43,5 @@ OR (pull directly from DockerHub): docker pull vigneshwinner/homework03:1.0
 
 Software Diagram:
 ![Software Diagram](diagram.png)
+
 This diagram represents how different components interact for Homework03. The **user** runs the analysis inside a **Docker container**, which executes Python scripts (`ml_data_analysis.py`, `gcd_algorithm.py`) using input data (`meteorite_landings.csv`). The unit test scripts (`test_ml_data_analysis.py`, `test_gcd_algorithm.py`) validate the correctness of the logic, and the **results** are generated as output.
