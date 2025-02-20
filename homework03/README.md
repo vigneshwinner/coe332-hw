@@ -1,4 +1,4 @@
-# Homework 2
+# Homework 3
 
 Overview: 
 This project provides an analysis of NASA's Meteorite Landings dataset, offering insights into meteorite mass, landing locations, and distances between impact sites. The goal is to apply data processing, geospatial calculations, and statistical analysis while ensuring proper logging, error handling, and unit testing.
