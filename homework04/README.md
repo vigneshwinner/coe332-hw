@@ -12,10 +12,10 @@ It ingests Orbital Ephemeris Message (OEM) XML data, parses it, and provides key
 Python Scripts:
 * iss_tracker.py
   + The main script that: 
-    - fetches ISS trajectory data
-    - parses it
-    - finds and prints the closest epoch to the current time
-    - calculates and prints both instantaneous and average speeds
+    - Fetches ISS trajectory data
+    - Parses it
+    - Finds and prints the closest epoch to the current time
+    - Calculates and prints both instantaneous and average speeds
 * test_iss_tracker.py
   - Contains unit tests for iss_tracker.py
 
@@ -31,12 +31,12 @@ This dataset contains 15 days of ISS position and velocity data and is constantl
 
 Running the Code:
 * python3 iss_tracker.py
-  - Fetch the latest Orbital Ephemeris Message (OEM) data for the ISS.
-  - Parse and process the dataset.
-  - Find the closest epoch (timestamp) to the current time.
-  - Compute instantaneous speed at that moment.
-  - Calculate average speed over the dataset.
-  - Display ISS position and velocity.
+  - Fetches the latest Orbital Ephemeris Message (OEM) data for the ISS.
+  - Parses and processes the dataset.
+  - Finds the closest epoch (timestamp) to the current time.
+  - Computes instantaneous speed at that moment.
+  - Calculates average speed over the dataset.
+  - Displays ISS position and velocity.
 * pytest
   - Runs test cases for speed calculations, epoch selection, and data parsing.
   - Ensures correct outputs and error handling.
