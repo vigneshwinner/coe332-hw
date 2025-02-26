@@ -44,8 +44,8 @@ Running the Code:
 
 Running the Code on Docker (build image yourself):
 1. Navigate to Project Directory
-2. Run: docker build -t vigneshwinner/homework04:1.0 ./
-3. Run: docker run --rm vigneshwinner/homework04:1.0
+2. Create image: docker build -t vigneshwinner/homework04:1.0 ./
+3. Test iss_tracker.py: docker run --rm vigneshwinner/homework04:1.0
 4. Run the Unit Tests: docker run --rm vigneshwinner/homework04:1.0 pytest /code/test_iss_tracker.py
 
 OR (pull directly from DockerHub): docker pull vigneshwinner/homework04:1.0
