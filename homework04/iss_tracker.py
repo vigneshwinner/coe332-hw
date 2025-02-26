@@ -70,20 +70,20 @@ def main():
         return
 
     # Print dataset range
-    logging.info(f"Data covers from {iss_data[0]['epoch']} to {iss_data[-1]['epoch']}")
+    print(f"Data covers from {iss_data[0]['epoch']} to {iss_data[-1]['epoch']}")
 
     # Find closest epoch to "now"
     now = datetime.now(timezone.utc)
     closest = find_closest_epoch(iss_data, now)
 
-    logging.info(f"Closest epoch: {closest['epoch']}")
-    logging.info(f"Position: {closest['position']}")
-    logging.info(f"Velocity: {closest['velocity']}")
-    logging.info(f"Instantaneous Speed: {compute_speed(closest['velocity']):.2f} km/s")
+    print(f"Closest epoch: {closest['epoch']}")
+    print(f"Position: {closest['position']}")
+    print(f"Velocity: {closest['velocity']}")
+    print(f"Instantaneous Speed: {compute_speed(closest['velocity']):.2f} km/s")
 
     # Compute and display average speed
     avg_speed = compute_average_speed(iss_data)
-    logging.info(f"Average ISS Speed: {avg_speed:.2f} km/s")
+    print(f"Average ISS Speed: {avg_speed:.2f} km/s")
 
 if __name__ == "__main__":
     main()
