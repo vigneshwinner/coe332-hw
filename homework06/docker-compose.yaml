@@ -7,7 +7,7 @@ services:
     volumes:
       - ./data:/data
     user: "1000:1000"
-    #Used ChatGPT to create the following command. I kept getting a "RDB Snapshot Failure", so I gave ChatGPT the error response I got and it told me to add "stop-writes-on-bgsave-error" to my command line. Using this code snipped disables the default behavior of stopping all write operations.
+    #Used ChatGPT to create the following command. I kept getting a "MISCONF" error, so I gave ChatGPT the error response I got and it told me to add "stop-writes-on-bgsave-error" to my command line. Using this code snipped disables the default behavior of stopping all write operations.
     command: ["redis-server", "--save", "1", "1", "--stop-writes-on-bgsave-error", "no" ]
 
   flask-app:
