@@ -11,7 +11,7 @@ The API performs the following functions:
 5. Retrieves detailed information for a specific gene based on its hgnc_id
 
 ***Python Scripts:***
-* **gene_api.py**  
+* ```gene_api.py```  
   - The main Flask API that:  
     + Fetches gene data from the HGNC's complete dataset (JSON)
     + Processes and loads the gene data into a Redis database
@@ -53,3 +53,9 @@ Once the API is running, to access and test the endpoints:
   - Returns a list of all gene IDs (hgnc_id)
 * ```curl http://127.0.0.1:5000/genes/<hgnc_id>```
   - Retrieves detailed gene data for a specific gene
+ 
+***Using AI***
+
+ChatGPT was used to generate the following line in ```docker-compose.yaml```:
+
+```command: ["redis-server", "--save", "1", "1", "--stop-writes-on-bgsave-error", "no" ]```
