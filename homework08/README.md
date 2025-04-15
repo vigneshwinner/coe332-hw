@@ -111,4 +111,7 @@ Once the API is running, to access and test the endpoints:
 
 
 ***Software Diagram***
+
 ![Software Diagram](diagram.png)
+
+The system runs on a Docker host that orchestrates three containers: Redis, API (Flask), and Worker via docker-compose. The Flask app exposes HTTP endpoints on port 5000, fetching raw HGNC data from the public JSON source and storing it in Redis (db0). Users submit asynchronous “jobs”, and these job IDs are pushed onto a Redis-backed queue (db1) and persisted in the jobs database (db2). A separate Worker container pulls job IDs off the queue, updates their status in db2, computes the analysis, and writes results to Redis (db3). A mounted host volume ensures Redis snapshots persist across restarts.
