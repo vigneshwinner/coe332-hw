@@ -53,7 +53,7 @@ This dataset contains comprehensive and up-to-date information on human genes, i
 
 ***Deploying the App:***
 1. Navigate to the Project Directory
-2. Create and start docker containers (Flask & Redis):
+2. Create and start docker containers (Redis, Flask API & Worker Service):
    ```docker-compose up --build -d```
    - The Flask API will run locally at http://localhost:5000
 
