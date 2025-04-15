@@ -105,9 +105,9 @@ Once the API is running, to access and test the endpoints:
 1. Start containers (if not running): ```docker-compose up --build -d```
 2. Run unit tests inside container: ```docker-compose exec flask-app pytest test```
 
-* **test_api.py:** Validates all Flask endpoints
-* **test_worker.py:** Checks date parsing and ID-range logic
-* **test_jobs.py:** Ensures job creation, storage, and results persistence
+* ```test_api.py```: Validates all Flask endpoints
+* ```test_worker.py```: Checks date parsing and ID-range logic
+* ```test_jobs.py```: Ensures job creation, storage, and results persistence
 
 
 ***Software Diagram***
